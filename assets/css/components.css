@@ -280,7 +280,8 @@ body.has-overlay { padding-bottom: calc(var(--overlay-h, 0px) + var(--space-4) *
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .sitemap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-@media (max-width: 960px) {
+/* header switches to the menu button below 1140px: the EW-led nav needs about 1130px */
+@media (max-width: 1140px) {
   .utility { display: none; }
   .nav-toggle { display: inline-flex; align-items: center; }
   .header-row { min-height: 64px; }
@@ -294,6 +295,8 @@ body.has-overlay { padding-bottom: calc(var(--overlay-h, 0px) + var(--space-4) *
   .has-sub .sub-toggle[aria-expanded="true"] + .sub { display: block; }
   .site-nav .btn { width: 100%; }
   .nav-lang { display: block; }
+}
+@media (max-width: 960px) {
   .mobile-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 120; display: flex; gap: var(--space-2); padding: var(--space-2) var(--gutter); background: var(--white); border-top: 1px solid var(--line); }
   .mobile-bar .btn { flex: 1; min-height: 48px; white-space: nowrap; padding: 0 var(--space-3); }
   .mobile-bar .btn--primary { flex: 1.7; }
@@ -304,7 +307,7 @@ body.has-overlay { padding-bottom: calc(var(--overlay-h, 0px) + var(--space-4) *
   .consent, .langbar { --dock-bottom: 76px; max-height: calc(100vh - 96px); overflow-y: auto; }
   body.has-overlay { padding-bottom: calc(var(--overlay-h, 0px) + 76px + var(--space-4)); }
 }
-@media (min-width: 961px) { .nav-lang { display: none; } }
+@media (min-width: 1141px) { .nav-lang { display: none; } }
 @media (max-width: 700px) {
   .diagram { overflow-x: auto; }
   .diagram img { width: auto; max-width: none; min-width: 640px; }
@@ -315,3 +318,16 @@ body.has-overlay { padding-bottom: calc(var(--overlay-h, 0px) + var(--space-4) *
 }
 
 .project:target .card { outline: 3px solid var(--hears-red); outline-offset: 2px; }
+
+/* Emery Winslow Scale originals (Owner rule 2026-11-15): always the whole image at its own aspect ratio. No crop, no forced
+   aspect box, no filter, no overlay. Guarded by CHK-EW-IMG (tools/check.mjs) and tools/ew-img-browser.mjs. */
+img.ew-img { display: block; width: auto !important; max-width: 100% !important; height: auto !important; aspect-ratio: auto !important; object-fit: contain !important; object-position: center !important; filter: none !important; clip-path: none !important; mask: none !important; border-radius: 0 !important; padding: 0 !important; margin-inline: auto; }
+a.ew-orig { display: block; position: relative; z-index: 1; }
+a.ew-orig picture, :is(.card__media, .split__media, .hero__art, .gallery figure, .hero__mosaic-item):has(img.ew-img) picture { display: block; height: auto; }
+:is(.card__media, .card--project .card__media, .split__media, .hero__art, .hero__art--photo, .gallery figure, .hero__mosaic-item, .compare__item, .more__grid):has(img.ew-img) { aspect-ratio: auto !important; height: auto !important; overflow: visible !important; }
+.card__media:has(img.ew-img) { display: flex; align-items: center; justify-content: center; }
+.card__media:has(img.ew-img) { flex-direction: column; padding: var(--space-2); }
+.card__media:has(img.ew-img) .card__caption { position: static; background: none; color: var(--slate-600); padding: var(--space-1) 0 0; font-size: .75rem; }
+/* desktop nav: keep each top-level label on one line */
+@media (min-width: 1141px) { .site-nav > ul > li > a, .site-nav > ul > li > .sub-toggle, .site-nav > .btn { white-space: nowrap; } }
+@media (min-width: 1141px) and (max-width: 1280px) { .site-nav, .site-nav > ul { gap: var(--space-4); } .site-nav > ul > li > a, .site-nav > ul > li > .sub-toggle { font-size: .875rem; } .header-row { gap: var(--space-4); } }
