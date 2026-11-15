@@ -1,0 +1,12 @@
+/* HearS pages.css: page-level refinements only (components live in components.css). */
+.article { padding-block: var(--space-8); }
+.article .prose-body { max-width: 720px; }
+.article .prose-body h2 { margin-top: var(--space-7); }
+.article .prose-body ul, .article .prose-body ol { padding-left: var(--space-5); max-width: var(--measure); }
+.article .hero-fig { margin: 0 0 var(--space-6); }
+.article .hero-fig img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius); }
+.article .byline { color: var(--color-text-muted); font-size: var(--fs-small); margin-bottom: var(--space-5); }
+.article-cta { margin-top: var(--space-8); padding: var(--space-6); background: var(--color-bg-alt); border-left: 4px solid var(--hears-red); border-radius: var(--radius); }
+.article-cta h2 { margin-top: 0; font-size: var(--fs-h3); }
+.not-found { padding-block: var(--space-9); text-align: left; }
+.not-found h2 { margin-top: var(--space-7); font-size: var(--fs-h3); }
