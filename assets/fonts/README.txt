@@ -1,4 +1,4 @@
-Inter (c) 2016-2023 The Inter Project Authors (https://github.com/rsms/inter), SIL Open Font License 1.1.
-Archivo (c) The Archivo Project Authors (https://github.com/Omnibus-Type/Archivo), SIL Open Font License 1.1.
-WOFF2 Latin and Vietnamese subsets of the unmodified outlines, from the Fontsource mirror (tools/fetch-fonts.mjs).
+Be Vietnam Pro (c) 2021 The Be Vietnam Pro Project Authors (https://github.com/bettergui/BeVietnamPro), SIL Open Font License 1.1 (OFL-BeVietnamPro.txt).
+One WOFF2 per weight (400, 500, 600, 700, 800): Latin, Latin Extended-A and the full Vietnamese range (U+1EA0-1EF9, combining marks, ₫), subset with fontTools from the
+Google Fonts release (unmodified outlines). The full TTFs used to turn SVG diagram text into outlines are in tools/illustrations/fonts/.
 assets/css/fonts.css is generated from the files in this folder by: node tools/fetch-fonts.mjs

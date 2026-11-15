@@ -43,11 +43,11 @@
   --color-focus-on-dark:    var(--white);
 
   /* ---- Typography ---- */
-  --font-display: "Archivo", "Inter", "Helvetica Neue", Arial, sans-serif; /* Archivo when hosted (node tools/fetch-fonts.mjs), otherwise Inter 800 */
-  --font-body:    "Inter", "Helvetica Neue", Arial, sans-serif;
-  --fw-display: 800;      /* H1, H2; 900 allowed for the home hero only */
+  --font-display: "Be Vietnam Pro", "Helvetica Neue", Arial, sans-serif; /* one family for everything: full Vietnamese glyph set (self-hosted, tools/fetch-fonts.mjs) */
+  --font-body:    "Be Vietnam Pro", "Helvetica Neue", Arial, sans-serif;
+  --fw-display: 800;      /* H1, H2; 800 is the heaviest hosted weight */
   --fw-heading: 700;      /* H3, H4 */
-  --stretch-display: 108%; /* Archivo width axis; ignored if the font lacks it */
+  --stretch-display: normal; /* Be Vietnam Pro has no width axis */
   --fs-display: clamp(2.25rem, 1.5rem + 3vw, 3.5rem);     /* 36 -> 56 px */
   --fs-h1:      clamp(2rem, 1.4rem + 2.2vw, 2.75rem);     /* 32 -> 44 */
   --fs-h2:      clamp(1.625rem, 1.3rem + 1.2vw, 2rem);    /* 26 -> 32 */
@@ -57,9 +57,9 @@
   --fs-body:    1rem;
   --fs-small:   0.875rem;
   /* Vietnamese stacked diacritics need room at heavy weights: never go below 1.12 */
-  --lh-display: 1.14;
-  --lh-h1: 1.18;
-  --lh-h2: 1.25;
+  --lh-display: 1.2;
+  --lh-h1: 1.24;
+  --lh-h2: 1.3;
   --lh-h3: 1.33;
   --lh-h4: 1.4;
   --lh-body: 1.625;
