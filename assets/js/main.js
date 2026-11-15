@@ -30,13 +30,16 @@ document.querySelectorAll('form.quote-form').forEach((form) => {
   const status = form.querySelector('.form-status');
   const q = new URLSearchParams(location.search);
   for (const k of ['division', 'type']) { const sel = form.querySelector(`select[name="${k}"]`); const v = q.get(k); if (sel && v && [...sel.options].some((o) => o.value === v)) sel.value = v; }
-  const farm = form.querySelector('.farm-fields'); const divSel = form.querySelector('select[name="division"]');
-  const syncFarm = () => { if (!farm || !divSel) return; const on = divSel.value === farm.dataset.division; farm.hidden = !on; farm.querySelectorAll('input, select').forEach((el) => { el.disabled = !on; }); };
+  const divSel = form.querySelector('select[name="division"]');
+  // parts shown only for one division (farm fields, the Dak Lak branch note)
+  const syncFarm = () => { if (!divSel) return; form.querySelectorAll('[data-division]').forEach((part) => { const on = divSel.value === part.dataset.division; part.hidden = !on; part.querySelectorAll('input, select').forEach((el) => { el.disabled = !on; }); }); };
   if (divSel) { divSel.addEventListener('change', syncFarm); syncFarm(); }
   const say = (msg, ok) => { if (status) { status.textContent = msg; status.dataset.state = ok ? 'ok' : 'error'; } };
   const mailto = (data) => {
     const body = Object.entries(data).filter(([k, v]) => v !== '' && !['website', 'ts', 'elapsed_ms'].includes(k)).map(([k, v]) => `${k}: ${v}`).join('\n');
-    const url = `mailto:${form.dataset.mailto}?subject=${encodeURIComponent('HearS enquiry' + (data.division ? ' – ' + data.division : ''))}&body=${encodeURIComponent(body)}`;
+    let routes = {}; try { routes = JSON.parse(form.dataset.routes || '{}'); } catch (e) { routes = {}; }
+    const to = routes[data.division] || form.dataset.mailto; // agriculture -> Dak Lak branch inbox
+    const url = `mailto:${to}?subject=${encodeURIComponent('HearS enquiry' + (data.division ? ' – ' + data.division : ''))}&body=${encodeURIComponent(body)}`;
     document.dispatchEvent(new CustomEvent('hears:mailto', { detail: { url } }));
     window.location.href = url;
   };

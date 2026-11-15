@@ -208,7 +208,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .site-nav a:not(.btn):hover, .sub-toggle:hover, .site-nav a[aria-current="page"] { color: var(--nav-text-hover); border-bottom-color: var(--hears-red); }
 .sub-toggle::after { content: ""; width: 7px; height: 7px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg) translateY(-2px); }
 .has-sub { position: relative; }
-.sub { display: none; position: absolute; top: calc(100% + 14px); left: -20px; z-index: 110; width: 380px; margin: 0; padding: var(--space-3); list-style: none; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-menu); }
+.sub { display: none; position: absolute; top: calc(100% + 14px); left: -20px; z-index: 110; width: 380px; margin: 0; padding: var(--space-3); list-style: none; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); }
 .has-sub:hover .sub, .has-sub:focus-within .sub, .sub-toggle[aria-expanded="true"] + .sub { display: block; }
 .has-sub::before { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 16px; }
 .sub a:not(.btn) { display: grid; grid-template-columns: 40px 1fr; gap: var(--space-3); align-items: start; padding: var(--space-3); border: 0; border-radius: var(--radius); font-weight: 400; }
@@ -505,6 +505,25 @@ a.ew-orig picture, :is(.card__media, .split__media, .hero__art, .gallery figure,
 /* desktop nav: keep each top-level label on one line */
 @media (min-width: 1141px) { .site-nav > ul > li > a, .site-nav > ul > li > .sub-toggle, .site-nav > .btn { white-space: nowrap; } }
 @media (min-width: 1141px) and (max-width: 1280px) { .site-nav, .site-nav > ul { gap: var(--space-4); } .site-nav > ul > li > a, .site-nav > ul > li > .sub-toggle { font-size: .875rem; } .header-row { gap: var(--space-4); } }
+.division-note { margin: 0 0 var(--space-4); padding: var(--space-3) var(--space-4); border-left: 4px solid var(--navy-800); background: var(--grey-50); border-radius: var(--radius); font-size: .9375rem; }
+.division-note[hidden] { display: none; }
+/* ---------- HearS Solutions & Services visual identity (theme-hears): red/navy, schematic frames ---------- */
+.theme-hears .hero--dark { border-bottom: 6px solid var(--hears-red); }
+.theme-hears .hero--dark::before, .theme-hears .hero--dark::after { content: ""; position: absolute; top: -20%; bottom: -20%; z-index: 1; transform: skewX(-24deg); background: var(--hears-red); pointer-events: none; }
+.theme-hears .hero--dark::before { left: 57%; width: 14px; }
+.theme-hears .hero--dark::after { left: calc(57% + 30px); width: 4px; opacity: .5; }
+.theme-hears .hero--dark .eyebrow { display: inline-block; color: var(--white); background: var(--hears-red-700); padding: 2px var(--space-2); border-radius: 2px; letter-spacing: .08em; }
+.theme-hears .hero__art--illustration img { background: var(--white); border-radius: 0; border-top: 6px solid var(--hears-red); }
+.theme-hears main h2 { padding-left: var(--space-3); border-left: 6px solid var(--hears-red); }
+.theme-hears main .cta h2, .theme-hears .form-aside h2 { padding-left: 0; border-left: 0; }
+.theme-hears .card { border-top: 4px solid var(--navy-800); border-radius: 0; }
+.theme-hears .card:hover { border-top-color: var(--hears-red); }
+.theme-hears .split__media img { background: var(--white); border: 1px solid var(--line); border-top: 6px solid var(--hears-red); border-radius: 0; }
+@media (max-width: 960px) { .theme-hears .hero--dark::before, .theme-hears .hero--dark::after { display: none; } }
+/* ---------- Agriculture – Dak Lak (theme-agri): own look on the HearS palette (green stays reserved for project tags) ---------- */
+.theme-agri .hero--light { background: var(--hears-red-50); border-bottom: 6px solid var(--navy-800); }
+.theme-agri .card { border-top: 4px solid var(--hears-red); }
+.theme-agri .hero__art--illustration img { background: var(--white); border-radius: var(--radius); border-top: 6px solid var(--navy-800); }
 
 /* HearS pages.css: page-level refinements only (components live in components.css). */
 .article { padding-block: var(--space-8); }
